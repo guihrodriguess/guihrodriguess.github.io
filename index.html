@@ -122,11 +122,19 @@ footer{padding:56px 0 72px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
 footer p{margin:0;color:var(--tx2)}
 .contato{display:flex;flex-wrap:wrap;gap:18px;font-size:15px}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:48px;position:sticky;top:56px;background:var(--bg);z-index:4;padding-top:12px}
+.tabs a{padding:12px 16px;color:var(--tx2);font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a:hover{text-decoration:none;color:var(--tx)}
+.tabs a.on{color:var(--tx);border-bottom-color:var(--ac)}
+.panel{display:none}.panel.on{display:block}
+#casos{padding-top:40px}
+@media(max-width:640px){.tabs{flex-wrap:nowrap;overflow-x:auto}.tabs a{white-space:nowrap;padding:10px 12px}}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#casos">Casos</a><a href="#como">Como trabalho</a><a href="#powerbi">Power BI (2022)</a><a href="#contato">Contato</a></div></div></nav>
+<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#produtos">Produtos</a><a href="#operacao">IA em operação</a><a href="#engenharia">Engenharia</a><a href="#dashboards">Dashboards</a><a href="#contato">Contato</a></div></div></nav>
 
 <header class="hero">
   <div class="foto"></div><div class="veu"></div>
@@ -135,7 +143,7 @@ footer p{margin:0;color:var(--tx2)}
     <h1 style="margin-top:14px">Do contrato de manutenção<br>à IA que vai <em>para produção.</em></h1>
     <p class="lead">Coordeno contratos de manutenção predial e facilities com mais de 100 pessoas em campo. Nos últimos meses, transformei os gargalos dessa rotina em software com IA, que roda com dado real e tem resultado medido.</p>
     <div class="chips"><span class="chip">IA aplicada a operações</span><span class="chip">LLM · RAG · agentes</span><span class="chip">Automação de processos</span><span class="chip">Gestão de contratos</span><span class="chip">Python · FastAPI · PostgreSQL</span></div>
-    <div class="cta"><a class="btn p" href="#casos">Ver os casos</a><a class="btn s" href="https://www.linkedin.com/in/guilherme-rodrigues-a532077b/">LinkedIn</a><a class="btn s" href="https://github.com/guihrodriguess">GitHub</a></div>
+    <div class="cta"><a class="btn p" href="#produtos">Ver os casos</a><a class="btn s" href="https://www.linkedin.com/in/guilherme-rodrigues-a532077b/">LinkedIn</a><a class="btn s" href="https://github.com/guihrodriguess">GitHub</a></div>
   </div>
 </header>
 
@@ -147,8 +155,14 @@ footer p{margin:0;color:var(--tx2)}
 </div></div>
 
 <section id="casos"><div class="wrap">
-  <div class="sec-h"><div class="mono">Casos</div><div><h2>Problema, solução e <em>resultado medido.</em></h2><p>Cada caso nasceu de um gargalo real de operação. Os números são de testes com dado real ou com documentos públicos; quando o dado é fictício, está dito.</p></div></div>
-
+  <div class="tabs" role="tablist">
+    <a role="tab" href="#produtos" data-t="produtos">Produtos com IA</a>
+    <a role="tab" href="#operacao" data-t="operacao">IA em operação</a>
+    <a role="tab" href="#engenharia" data-t="engenharia">Engenharia de IA</a>
+    <a role="tab" href="#dashboards" data-t="dashboards">Dashboards · 2022</a>
+  </div>
+<div class="panel" id="p-produtos" role="tabpanel">
+  <div class="sec-h"><div class="mono">Produtos</div><div><h2>Software com IA, <em>do zero ao ar.</em></h2><p>Produtos que construí sozinho, com arquitetura, código e preço definidos por mim. Demonstrações abertas, sem cadastro.</p></div></div>
   <article class="caso">
     <div class="n"><b>01</b>Atestra<br>2026 · fundador</div>
     <div>
@@ -167,9 +181,11 @@ footer p{margin:0;color:var(--tx2)}
       <div class="lk"><a href="https://atestra.com.br/lp/scope">Demonstração do Scope →</a><a href="https://atestra.com.br/lp/way">Demonstração do Way →</a><a href="https://atestra.com.br/lp/audit">Demonstração do Audit →</a></div>
     </div>
   </article>
-
+</div>
+<div class="panel" id="p-operacao" role="tabpanel">
+  <div class="sec-h"><div class="mono">IA em operação</div><div><h2>IA dentro da <em>rotina do contrato.</em></h2><p>Soluções que nasceram de gargalos reais da operação e rodaram com dado real. Cada caso com problema, solução e resultado medido.</p></div></div>
   <article class="caso">
-    <div class="n"><b>02</b>Auditoria de campo<br>piloto em operação real</div>
+    <div class="n"><b>01</b>Auditoria de campo<br>piloto em operação real</div>
     <div>
       <h3>Fichas de PMOC e inspeção conferidas em segundos, não em minutos</h3>
       <div class="pso">
@@ -180,9 +196,8 @@ footer p{margin:0;color:var(--tx2)}
       <div class="stack">Python · extração de PDF · Claude API · regras por contrato · relatório com ações corretivas por prioridade</div>
     </div>
   </article>
-
   <article class="caso">
-    <div class="n"><b>03</b>Assistente de contrato<br>RAG no Microsoft Teams</div>
+    <div class="n"><b>02</b>Assistente de contrato<br>RAG no Microsoft Teams</div>
     <div>
       <h3>Perguntar ao contrato em linguagem natural, com a fonte citada</h3>
       <div class="pso">
@@ -193,9 +208,8 @@ footer p{margin:0;color:var(--tx2)}
       <div class="stack">Python · embeddings · busca híbrida · Azure Bot Service · Microsoft Teams · LGPD</div>
     </div>
   </article>
-
   <article class="caso">
-    <div class="n"><b>04</b>Triagem de chamados<br>série com o Jev (TypeSafe AI)</div>
+    <div class="n"><b>03</b>Triagem de chamados<br>série com o Jev (TypeSafe AI)</div>
     <div>
       <h3>Classificar, priorizar e destravar chamados por R$ 0,001 cada</h3>
       <div class="pso">
@@ -206,9 +220,11 @@ footer p{margin:0;color:var(--tx2)}
       <div class="stack">Classificação com probabilidade · índice de risco · fila ponderada · mascaramento de dados pessoais · R$ 0,91 no backlog inteiro</div>
     </div>
   </article>
-
+</div>
+<div class="panel" id="p-engenharia" role="tabpanel">
+  <div class="sec-h"><div class="mono">Engenharia de IA</div><div><h2>Sistemas de IA levados <em>além da demo.</em></h2><p>Projetos públicos, com dados sintéticos, para mostrar os fundamentos que não aparecem numa demonstração: retry, idempotência, avaliação e isolamento.</p></div></div>
   <article class="caso">
-    <div class="n"><b>05</b>AI Engineering<br>portfólio público</div>
+    <div class="n"><b>01</b>AI Engineering<br>portfólio público</div>
     <div>
       <h3>Cinco sistemas de IA levados além da demo</h3>
       <div class="pso">
@@ -220,20 +236,10 @@ footer p{margin:0;color:var(--tx2)}
       <div class="lk"><a href="https://github.com/guihrodriguess/ai-engineering-portfolio">Repositório →</a><a href="https://ai-agente-controle-execucao.vercel.app">Demo do agente →</a><a href="https://ai-pipeline-classificacao.vercel.app">Demo do classificador →</a></div>
     </div>
   </article>
-</div></section>
-
-<section id="como"><div class="wrap">
-  <div class="sec-h"><div class="mono">Como trabalho</div><div><h2>Onde a IA ajuda, <em>onde ela erra.</em></h2><p>Vim da operação, não do laboratório. Desenvolvo com assistentes de código e cuido do que eles não fazem sozinhos: o problema certo, a regra do negócio e a medição.</p></div></div>
-  <div class="princ">
-    <div><b>A IA sugere; uma pessoa decide.</b><p>Ação sensível passa por aprovação humana.</p></div>
-    <div><b>Sem dado, não inventa.</b><p>O que falta vai para revisão, com o motivo.</p></div>
-    <div><b>Regra no código.</b><p>A IA responde pergunta fechada; peso e corte ficam auditáveis.</p></div>
-    <div><b>Custo medido.</b><p>Custo de IA por documento e teto por cliente, antes de escalar.</p></div>
-  </div>
-</div></section>
-
-<section id="powerbi" class="arquivo"><div class="wrap">
+</div>
+<div class="panel" id="p-dashboards" role="tabpanel">
   <div class="sec-h"><div class="mono">Arquivo · 2022</div><div><h2>Painéis em Power BI, <em>onde comecei.</em></h2><p>Seis painéis feitos em 2022, em cursos de Power BI e análise de dados (Hashtag Treinamentos e Empowerdata), com empresas e dados fictícios.</p></div></div>
+
   <div class="aviso"><span class="tag">2022</span><div>Hoje minha entrega é outra: em vez de um painel para alguém olhar, sistemas que leem o documento, conferem contra a regra e dizem o que fazer. Os mockups abaixo são redesenhos com números fictícios; os painéis originais e interativos estão no portfólio antigo.</div></div>
 
   <div class="dashs">
@@ -268,6 +274,17 @@ footer p{margin:0;color:var(--tx2)}
     </div><div class="cap">Headcount, turnover por área e absenteísmo.</div></div>
   </div>
   <div class="lk" style="margin-top:22px"><a href="https://sites.google.com/view/portifolioguilhermerodriguess/in%C3%ADcio">Ver os painéis originais, interativos (2022) →</a></div>
+</div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <div class="sec-h"><div class="mono">Como trabalho</div><div><h2>Onde a IA ajuda, <em>onde ela erra.</em></h2><p>Vim da operação, não do laboratório. Desenvolvo com assistentes de código e cuido do que eles não fazem sozinhos: o problema certo, a regra do negócio e a medição.</p></div></div>
+  <div class="princ">
+    <div><b>A IA sugere; uma pessoa decide.</b><p>Ação sensível passa por aprovação humana.</p></div>
+    <div><b>Sem dado, não inventa.</b><p>O que falta vai para revisão, com o motivo.</p></div>
+    <div><b>Regra no código.</b><p>A IA responde pergunta fechada; peso e corte ficam auditáveis.</p></div>
+    <div><b>Custo medido.</b><p>Custo de IA por documento e teto por cliente, antes de escalar.</p></div>
+  </div>
 </div></section>
 
 <footer id="contato"><div class="wrap">
@@ -275,5 +292,20 @@ footer p{margin:0;color:var(--tx2)}
   <div class="contato"><a href="mailto:guihrodriguess@gmail.com">guihrodriguess@gmail.com</a><a href="https://www.linkedin.com/in/guilherme-rodrigues-a532077b/">LinkedIn</a><a href="https://github.com/guihrodriguess">GitHub</a><a href="https://atestra.com.br">atestra.com.br</a></div>
 </div></footer>
 
+<script>
+(function(){
+  var ids=["produtos","operacao","engenharia","dashboards"];
+  function show(id,scroll){
+    if(ids.indexOf(id)<0) id="produtos";
+    ids.forEach(function(x){
+      document.getElementById("p-"+x).classList.toggle("on",x===id);
+      document.querySelector('.tabs a[data-t="'+x+'"]').classList.toggle("on",x===id);
+    });
+    if(scroll) document.getElementById("casos").scrollIntoView({behavior:"smooth"});
+  }
+  window.addEventListener("hashchange",function(){var id=location.hash.slice(1); if(ids.indexOf(id)>=0) show(id,true);});
+  var h=location.hash.slice(1); show(h, ids.indexOf(h)>=0);
+})();
+</script>
 </body>
 </html>

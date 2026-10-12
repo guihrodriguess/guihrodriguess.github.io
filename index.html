@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guilherme Rodrigues · IA aplicada a operações</title>
+<meta name="description" content="Engenheiro eletricista e coordenador de contratos de manutenção predial. Construo soluções de IA aplicada a operações, do problema de campo ao sistema em produção.">
+<meta property="og:title" content="Guilherme Rodrigues · IA aplicada a operações">
+<meta property="og:description" content="Do contrato de manutenção à IA que vai para produção. Casos com problema, solução e resultado medido.">
+<meta property="og:image" content="https://guihrodriguess.github.io/og.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f0e;--bg2:#111816;--card:#141c1a;--line:#243230;--line2:#33433f;
+  --tx:#f1ede3;--tx2:#b9c4c0;--tx3:#7f8f8a;--ac:#2dd4bf;--ac2:#14b8a6;--warn:#f5b54a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ac);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:"Geist Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--tx3)}
+h1,h2,h3{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 112;letter-spacing:-.02em;margin:0;line-height:1.08}
+h1{font-size:clamp(36px,6vw,64px);font-weight:720}
+h2{font-size:clamp(26px,3.6vw,38px);font-weight:700}
+h3{font-size:22px;font-weight:680}
+em{font-style:normal;color:var(--ac)}
+
+/* topo */
+nav{position:sticky;top:0;z-index:5;background:#0b0f0ee6;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+nav b{font-family:Archivo;font-weight:700;font-variation-settings:"wdth" 112}
+nav .links{display:flex;gap:20px;font-size:14px}
+nav .links a{color:var(--tx2)}
+@media(max-width:640px){nav .links{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .foto{position:absolute;inset:0 0 0 auto;width:48%;background:url(campo.jpg) 30% 40%/cover;filter:saturate(.7) brightness(.62)}
+.hero .veu{position:absolute;inset:0 0 0 auto;width:48%;background:linear-gradient(90deg,var(--bg) 0%,#0b0f0ecc 30%,#0b0f0e33 100%)}
+.hero .wrap{position:relative;padding-top:96px;padding-bottom:88px}
+.hero p.lead{max-width:600px;font-size:19px;color:var(--tx2);margin:24px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{border:1px solid var(--line2);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--tx2)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;border-radius:8px;padding:11px 18px;font-weight:600;font-size:15px}
+.btn.p{background:var(--ac);color:#06201c}
+.btn.s{border:1px solid var(--line2);color:var(--tx)}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+@media(max-width:760px){.hero .foto,.hero .veu{width:100%;opacity:.35}.hero .wrap{padding-top:64px;padding-bottom:56px}}
+
+/* números */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.nums div{padding:28px 24px;border-right:1px solid var(--line)}
+.nums div:last-child{border-right:0}
+.nums b{display:block;font-family:Archivo;font-size:34px;font-weight:720;font-variation-settings:"wdth" 112;color:var(--tx)}
+.nums span{font-size:14px;color:var(--tx3)}
+@media(max-width:760px){.nums{grid-template-columns:1fr 1fr}.nums div:nth-child(2){border-right:0}.nums div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+section{padding:88px 0;border-bottom:1px solid var(--line)}
+.sec-h{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:40px}
+.sec-h p{color:var(--tx2);max-width:640px;margin:14px 0 0}
+@media(max-width:760px){.sec-h{grid-template-columns:1fr;gap:8px}}
+
+/* casos */
+.caso{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:40px 0;border-top:1px solid var(--line)}
+.caso:first-of-type{border-top:0}
+.caso .n{font-family:"Geist Mono";font-size:13px;color:var(--tx3)}
+.caso .n b{display:block;font-family:Archivo;font-size:44px;font-weight:720;color:var(--line2);line-height:1;margin-bottom:10px}
+.pso{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.pso div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.pso .mono{display:block;margin-bottom:6px}
+.pso p{margin:0;font-size:15px;color:var(--tx2)}
+.pso .res p{color:var(--tx)}
+.stack{font-family:"Geist Mono";font-size:12.5px;color:var(--tx3);margin-top:16px}
+.lk{margin-top:14px;display:flex;flex-wrap:wrap;gap:18px;font-size:15px}
+@media(max-width:860px){.caso{grid-template-columns:1fr;gap:12px}.pso{grid-template-columns:1fr}}
+
+/* produtos atestra */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.prod h4{margin:0 0 4px;font-family:Archivo;font-size:18px}
+.prod p{margin:0 0 10px;font-size:14.5px;color:var(--tx2)}
+.prod .r{font-size:14px;color:var(--tx);border-top:1px solid var(--line);padding-top:10px}
+@media(max-width:860px){.prods{grid-template-columns:1fr}}
+
+/* princípios */
+.princ{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.princ div{border-left:2px solid var(--ac2);padding:4px 0 4px 16px}
+.princ b{display:block;font-size:16px;margin-bottom:4px}
+.princ p{margin:0;font-size:14.5px;color:var(--tx2)}
+@media(max-width:860px){.princ{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.princ{grid-template-columns:1fr}}
+
+/* power bi 2022 */
+.arquivo{background:var(--bg2)}
+.aviso{display:flex;gap:14px;align-items:flex-start;border:1px solid #5a4a26;background:#1c1810;border-radius:10px;padding:16px 18px;color:#e8d7b0;font-size:15px;max-width:820px}
+.aviso .tag{flex:none;font-family:"Geist Mono";font-size:12px;background:var(--warn);color:#2a1d02;border-radius:4px;padding:2px 8px;margin-top:2px}
+.dashs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.dash{background:#f6f7f9;border-radius:10px;overflow:hidden;color:#1d2433;position:relative}
+.dash .bar{background:#1f2a44;color:#fff;font:600 12px/1 Geist;padding:9px 12px;display:flex;justify-content:space-between}
+.dash .bar i{font-style:normal;opacity:.6;font-family:"Geist Mono";font-size:10.5px}
+.dash .body{padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.kpi{background:#fff;border-radius:6px;padding:6px 8px;box-shadow:0 1px 0 #e3e6eb}
+.kpi small{display:block;font-size:9.5px;color:#6b7387}
+.kpi b{font-size:14px}
+.viz{grid-column:span 3;background:#fff;border-radius:6px;padding:8px;box-shadow:0 1px 0 #e3e6eb}
+.viz svg{display:block;width:100%;height:78px}
+.viz2{grid-column:span 3;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.viz2>div{background:#fff;border-radius:6px;padding:8px;box-shadow:0 1px 0 #e3e6eb}
+.viz2 svg{display:block;width:100%;height:54px}
+.dash .cap{background:#fff;border-top:1px solid #e3e6eb;padding:10px 12px;font-size:13px;color:#3a4256}
+.dash .selo{position:absolute;top:34px;right:8px;font:500 10px "Geist Mono";background:#fff3d6;color:#7a5600;border:1px solid #f0d68f;border-radius:4px;padding:2px 6px}
+@media(max-width:860px){.dashs{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dashs{grid-template-columns:1fr}}
+
+footer{padding:56px 0 72px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+footer p{margin:0;color:var(--tx2)}
+.contato{display:flex;flex-wrap:wrap;gap:18px;font-size:15px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#casos">Casos</a><a href="#como">Como trabalho</a><a href="#powerbi">Power BI (2022)</a><a href="#contato">Contato</a></div></div></nav>
+
+<header class="hero">
+  <div class="foto"></div><div class="veu"></div>
+  <div class="wrap">
+    <div class="mono">Engenheiro eletricista · Belo Horizonte</div>
+    <h1 style="margin-top:14px">Do contrato de manutenção<br>à IA que vai <em>para produção.</em></h1>
+    <p class="lead">Coordeno contratos de manutenção predial e facilities com mais de 100 pessoas em campo. Nos últimos meses, transformei os gargalos dessa rotina em software com IA, que roda com dado real e tem resultado medido.</p>
+    <div class="chips"><span class="chip">IA aplicada a operações</span><span class="chip">LLM · RAG · agentes</span><span class="chip">Automação de processos</span><span class="chip">Gestão de contratos</span><span class="chip">Python · FastAPI · PostgreSQL</span></div>
+    <div class="cta"><a class="btn p" href="#casos">Ver os casos</a><a class="btn s" href="https://www.linkedin.com/in/guilherme-rodrigues-a532077b/">LinkedIn</a><a class="btn s" href="https://github.com/guihrodriguess">GitHub</a></div>
+  </div>
+</header>
+
+<div class="wrap" style="padding:0"><div class="nums">
+  <div><b>100+</b><span>pessoas em campo coordenadas</span></div>
+  <div><b>3</b><span>produtos SaaS construídos do zero</span></div>
+  <div><b>99,75%</b><span>de coincidência no piloto do Audit</span></div>
+  <div><b>R$ 0,001</b><span>por chamado classificado com IA</span></div>
+</div></div>
+
+<section id="casos"><div class="wrap">
+  <div class="sec-h"><div class="mono">Casos</div><div><h2>Problema, solução e <em>resultado medido.</em></h2><p>Cada caso nasceu de um gargalo real de operação. Os números são de testes com dado real ou com documentos públicos; quando o dado é fictício, está dito.</p></div></div>
+
+  <article class="caso">
+    <div class="n"><b>01</b>Atestra<br>2026 · fundador</div>
+    <div>
+      <h3>Atestra: preço, plano e ficha de contratos de serviço, conferidos</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Em contrato de serviço terceirizado, o erro aparece tarde: na diligência do pregão, no mês que não fecha, na ficha que ninguém conferiu até o fim.</p></div>
+        <div><span class="mono">Solução</span><p>Três produtos, um para cada etapa do contrato. A IA lê e sugere; regra fica no código; uma pessoa decide.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Testados contra cadernos de preço oficiais, um pregão real e documentos de campo. Demonstrações abertas, sem cadastro.</p></div>
+      </div>
+      <div class="prods">
+        <div class="prod"><h4>Scope</h4><p>Lê o edital, monta a planilha de custos no modelo da IN 5, a escada de lances e a conferência da habilitação.</p><div class="r">Vigilância TJSP: +0,01%. Limpeza CADTERC: 0,00%. Edital de 43 páginas lido em 36 s.</div></div>
+        <div class="prod"><h4>Way</h4><p>Dimensiona equipes e rotas de contratos com muitas unidades: jornada, pernoite e transbordo entre bases.</p><div class="r">Pregão de 35 agências: o cronograma dizia 2 equipes; a estrada mostrou 12 visitas fora do mês.</div></div>
+        <div class="prod"><h4>Audit</h4><p>Confere fichas de PMOC, rondas, inspeções e notas fiscais contra as regras do contrato, com ação corretiva.</p><div class="r">Depois de aprender o formato, a IA só entra numa amostra de controle de 5%.</div></div>
+      </div>
+      <div class="stack">React · TypeScript · FastAPI · PostgreSQL com Row-Level Security · Docker · Claude API · custo de IA medido com teto por cliente</div>
+      <div class="lk"><a href="https://atestra.com.br/lp/scope">Demonstração do Scope →</a><a href="https://atestra.com.br/lp/way">Demonstração do Way →</a><a href="https://atestra.com.br/lp/audit">Demonstração do Audit →</a></div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>02</b>Auditoria de campo<br>piloto em operação real</div>
+    <div>
+      <h3>Fichas de PMOC e inspeção conferidas em segundos, não em minutos</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Cada relatório de PMOC ou inspeção consumia de 5 a 10 minutos de um profissional. Com volume, a conferência virava carimbo.</p></div>
+        <div><span class="mono">Solução</span><p>O sistema aprende o formato de cada relatório e lê sem IA; a IA fica para o que é novo e para uma amostra de controle. O que é incerto vai para revisão humana.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>A leitura pelo formato aprendido coincidiu em 99,75% com a leitura da IA. O custo de IA caiu para uma amostra de 5%.</p></div>
+      </div>
+      <div class="stack">Python · extração de PDF · Claude API · regras por contrato · relatório com ações corretivas por prioridade</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>03</b>Assistente de contrato<br>RAG no Microsoft Teams</div>
+    <div>
+      <h3>Perguntar ao contrato em linguagem natural, com a fonte citada</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Achar prazo de atendimento, multa ou cláusula de convenção coletiva levava horas de leitura manual.</p></div>
+        <div><span class="mono">Solução</span><p>Busca híbrida (vetorial e lexical), roteamento por sigla de sindicato, temperatura 0 e citação obrigatória. Sem base suficiente, o bot recusa em vez de inventar. CPF, CNPJ e RG mascarados antes de indexar e de novo na resposta.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Resposta em segundos com o arquivo de origem. Avaliação com banco de perguntas por perfil e por classe (factual, multi-hop, agregação, conflito de vigência).</p></div>
+      </div>
+      <div class="stack">Python · embeddings · busca híbrida · Azure Bot Service · Microsoft Teams · LGPD</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>04</b>Triagem de chamados<br>série com o Jev (TypeSafe AI)</div>
+    <div>
+      <h3>Classificar, priorizar e destravar chamados por R$ 0,001 cada</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Chamados de manutenção chegam escritos do jeito que dá, muitos caem em "Outros", e a prioridade é a de quem abriu: 82% marcados como "Baixa".</p></div>
+        <div><span class="mono">Solução</span><p>A IA só escolhe opção, dá nota ou responde sim/não, sempre com probabilidade. Pesos, cortes e a fila ficam no código, e mudam sem rodar a IA de novo.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>90% de acerto na área e 83% na especialidade. 21% do backlog era risco Crítico ou Alto marcado como "Baixa". Críticos entre os 50 primeiros da fila: de 17 para 50.</p></div>
+      </div>
+      <div class="stack">Classificação com probabilidade · índice de risco · fila ponderada · mascaramento de dados pessoais · R$ 0,91 no backlog inteiro</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>05</b>AI Engineering<br>portfólio público</div>
+    <div>
+      <h3>Cinco sistemas de IA levados além da demo</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Chamar um LLM e mostrar a resposta é fácil. Difícil é retry, idempotência, avaliação e isolamento entre clientes.</p></div>
+        <div><span class="mono">Solução</span><p>RAG com avaliação, agente com controle de execução e aprovação humana, pipeline de classificação, fila assíncrona com worker separado e app multi-tenant com RLS real.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Testes reais, decisões documentadas e bugs encontrados contados no README, em vez de escondidos. Dados 100% sintéticos.</p></div>
+      </div>
+      <div class="stack">Next.js · Vercel AI SDK · PostgreSQL RLS · Docker Compose · GitHub Actions</div>
+      <div class="lk"><a href="https://github.com/guihrodriguess/ai-engineering-portfolio">Repositório →</a><a href="https://ai-agente-controle-execucao.vercel.app">Demo do agente →</a><a href="https://ai-pipeline-classificacao.vercel.app">Demo do classificador →</a></div>
+    </div>
+  </article>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <div class="sec-h"><div class="mono">Como trabalho</div><div><h2>Onde a IA ajuda, <em>onde ela erra.</em></h2><p>Vim da operação, não do laboratório. Desenvolvo com assistentes de código e cuido do que eles não fazem sozinhos: o problema certo, a regra do negócio e a medição.</p></div></div>
+  <div class="princ">
+    <div><b>A IA sugere; uma pessoa decide.</b><p>Ação sensível passa por aprovação humana.</p></div>
+    <div><b>Sem dado, não inventa.</b><p>O que falta vai para revisão, com o motivo.</p></div>
+    <div><b>Regra no código.</b><p>A IA responde pergunta fechada; peso e corte ficam auditáveis.</p></div>
+    <div><b>Custo medido.</b><p>Custo de IA por documento e teto por cliente, antes de escalar.</p></div>
+  </div>
+</div></section>
+
+<section id="powerbi" class="arquivo"><div class="wrap">
+  <div class="sec-h"><div class="mono">Arquivo · 2022</div><div><h2>Painéis em Power BI, <em>onde comecei.</em></h2><p>Seis painéis feitos em 2022, em cursos de Power BI e análise de dados (Hashtag Treinamentos e Empowerdata), com empresas e dados fictícios.</p></div></div>
+  <div class="aviso"><span class="tag">2022</span><div>Hoje minha entrega é outra: em vez de um painel para alguém olhar, sistemas que leem o documento, conferem contra a regra e dizem o que fazer. Os mockups abaixo são redesenhos com números fictícios; os painéis originais e interativos estão no portfólio antigo.</div></div>
+
+  <div class="dashs">
+    <div class="dash"><div class="bar">Vendas<i>2022 · dados fictícios</i></div><div class="body">
+      <div class="kpi"><small>Faturamento</small><b>R$ 4,8 mi</b></div><div class="kpi"><small>Devoluções</small><b>3,2%</b></div><div class="kpi"><small>Mais vendido</small><b>Linha A</b></div>
+      <div class="viz"><svg viewBox="0 0 300 78" preserveAspectRatio="none"><polyline fill="none" stroke="#2563eb" stroke-width="2.5" points="0,60 25,52 50,56 75,40 100,44 125,30 150,36 175,22 200,28 225,18 250,24 275,12 300,16"/><polyline fill="#2563eb22" stroke="none" points="0,78 0,60 25,52 50,56 75,40 100,44 125,30 150,36 175,22 200,28 225,18 250,24 275,12 300,16 300,78"/></svg></div>
+    </div><div class="cap">Faturamento mensal, por estado e por produto.</div></div>
+
+    <div class="dash"><div class="bar">Estoque e vendas<i>2022 · dados fictícios</i></div><div class="body">
+      <div class="kpi"><small>Faturamento</small><b>R$ 2,1 mi</b></div><div class="kpi"><small>Lojas</small><b>12</b></div><div class="kpi"><small>Itens críticos</small><b>18</b></div>
+      <div class="viz"><svg viewBox="0 0 300 78" preserveAspectRatio="none"><g fill="#0ea5e9"><rect x="6" y="20" width="30" height="58"/><rect x="48" y="34" width="30" height="44"/><rect x="90" y="12" width="30" height="66"/><rect x="132" y="40" width="30" height="38"/><rect x="174" y="28" width="30" height="50"/><rect x="216" y="50" width="30" height="28"/><rect x="258" y="44" width="30" height="34"/></g><line x1="0" y1="46" x2="300" y2="46" stroke="#ef4444" stroke-dasharray="4 3"/></svg></div>
+    </div><div class="cap">Estoque por loja contra o mínimo, e faturamento mensal.</div></div>
+
+    <div class="dash"><div class="bar">Compras<i>2022 · dados fictícios</i></div><div class="body">
+      <div class="kpi"><small>Compras</small><b>R$ 1,3 mi</b></div><div class="kpi"><small>Fornecedores</small><b>37</b></div><div class="kpi"><small>Pedidos</small><b>842</b></div>
+      <div class="viz2"><div><svg viewBox="0 0 100 54"><circle cx="27" cy="27" r="20" fill="none" stroke="#e5e7eb" stroke-width="10"/><circle cx="27" cy="27" r="20" fill="none" stroke="#7c3aed" stroke-width="10" stroke-dasharray="80 126" transform="rotate(-90 27 27)"/><text x="58" y="31" font-size="11" fill="#1d2433" font-family="Geist">64%</text></svg></div><div><svg viewBox="0 0 100 54"><g fill="#7c3aed"><rect x="0" y="4" width="90" height="8"/><rect x="0" y="17" width="66" height="8"/><rect x="0" y="30" width="48" height="8"/><rect x="0" y="43" width="30" height="8"/></g></svg></div></div>
+    </div><div class="cap">Valor e quantidade por fornecedor e por categoria.</div></div>
+
+    <div class="dash"><div class="bar">Atendimentos hospitalares<i>2022 · dados fictícios</i></div><div class="body">
+      <div class="kpi"><small>Atendimentos</small><b>9.412</b></div><div class="kpi"><small>Espera média</small><b>38 min</b></div><div class="kpi"><small>Retorno</small><b>7,4%</b></div>
+      <div class="viz"><svg viewBox="0 0 300 78" preserveAspectRatio="none"><g fill="#10b981"><rect x="4" y="44" width="18" height="34"/><rect x="28" y="30" width="18" height="48"/><rect x="52" y="18" width="18" height="60"/><rect x="76" y="26" width="18" height="52"/><rect x="100" y="38" width="18" height="40"/><rect x="124" y="50" width="18" height="28"/><rect x="148" y="34" width="18" height="44"/><rect x="172" y="22" width="18" height="56"/><rect x="196" y="14" width="18" height="64"/><rect x="220" y="28" width="18" height="50"/><rect x="244" y="42" width="18" height="36"/><rect x="268" y="56" width="18" height="22"/></g></svg></div>
+    </div><div class="cap">Atendimentos por hora, especialidade e convênio.</div></div>
+
+    <div class="dash"><div class="bar">Financeiro<i>2022 · dados fictícios</i></div><div class="body">
+      <div class="kpi"><small>Receita</small><b>R$ 6,2 mi</b></div><div class="kpi"><small>Margem</small><b>18,6%</b></div><div class="kpi"><small>Caixa</small><b>R$ 940 mil</b></div>
+      <div class="viz"><svg viewBox="0 0 300 78" preserveAspectRatio="none"><polyline fill="none" stroke="#0f766e" stroke-width="2.5" points="0,40 30,36 60,42 90,30 120,34 150,24 180,28 210,20 240,26 270,16 300,18"/><polyline fill="none" stroke="#f59e0b" stroke-width="2.5" points="0,56 30,54 60,58 90,50 120,52 150,46 180,50 210,44 240,48 270,40 300,42"/></svg></div>
+    </div><div class="cap">Receita contra despesa, margem e fluxo de caixa.</div></div>
+
+    <div class="dash"><div class="bar">People Analytics<i>2022 · dados fictícios</i></div><div class="body">
+      <div class="kpi"><small>Colaboradores</small><b>1.248</b></div><div class="kpi"><small>Turnover</small><b>11,3%</b></div><div class="kpi"><small>Absenteísmo</small><b>2,9%</b></div>
+      <div class="viz2"><div><svg viewBox="0 0 100 54"><circle cx="27" cy="27" r="20" fill="none" stroke="#e5e7eb" stroke-width="10"/><circle cx="27" cy="27" r="20" fill="none" stroke="#db2777" stroke-width="10" stroke-dasharray="58 126" transform="rotate(-90 27 27)"/><text x="58" y="31" font-size="11" fill="#1d2433" font-family="Geist">46%</text></svg></div><div><svg viewBox="0 0 100 54" preserveAspectRatio="none"><polyline fill="none" stroke="#db2777" stroke-width="2.5" points="0,40 20,34 40,38 60,26 80,30 100,20"/></svg></div></div>
+    </div><div class="cap">Headcount, turnover por área e absenteísmo.</div></div>
+  </div>
+  <div class="lk" style="margin-top:22px"><a href="https://sites.google.com/view/portifolioguilhermerodriguess/in%C3%ADcio">Ver os painéis originais, interativos (2022) →</a></div>
+</div></section>
+
+<footer id="contato"><div class="wrap">
+  <div><div class="mono">Contato</div><p style="margin-top:10px;max-width:460px">Aberto a conversar sobre IA aplicada a operações, AI Solutions, automação de processos e produto.</p></div>
+  <div class="contato"><a href="mailto:guihrodriguess@gmail.com">guihrodriguess@gmail.com</a><a href="https://www.linkedin.com/in/guilherme-rodrigues-a532077b/">LinkedIn</a><a href="https://github.com/guihrodriguess">GitHub</a><a href="https://atestra.com.br">atestra.com.br</a></div>
+</div></footer>
+
+</body>
+</html>

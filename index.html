@@ -131,8 +131,8 @@ footer p{margin:0;color:var(--tx2)}
 #casos{padding-top:40px}
 @media(max-width:640px){.tabs{flex-wrap:nowrap;overflow-x:auto}.tabs a{white-space:nowrap;padding:10px 12px}}
 
-.hero .viz-hero{position:absolute;top:0;bottom:0;right:max(0px,calc((100vw - 1180px)/2));width:44%;opacity:.95}
-.hero .viz-hero svg{width:100%;height:100%}
+.hero{display:flex;flex-direction:column}.hero>.wrap{width:100%}.hero .viz-hero{order:2;position:relative;width:100%;max-width:1080px;margin:-36px auto 56px;padding:0 24px;opacity:.95}
+.hero .viz-hero svg{width:100%;height:auto;display:block}
 .viz-hero .nos circle{fill:#2dd4bf;transform-box:fill-box;transform-origin:center;animation:pulso 2.8s ease-in-out infinite}
 .viz-hero .nos circle:nth-child(2){animation-delay:.5s}.viz-hero .nos circle:nth-child(3){animation-delay:1s}.viz-hero .nos circle:nth-child(4){animation-delay:1.5s}.viz-hero .nos circle:nth-child(5){animation-delay:2s}
 .viz-hero .nos .alerta{fill:#f5b54a}
@@ -141,8 +141,8 @@ footer p{margin:0;color:var(--tx2)}
 @keyframes fluxo{to{stroke-dashoffset:-80}}
 @media(prefers-reduced-motion:reduce){.viz-hero *{animation:none!important}}
 .hero h1{font-size:clamp(34px,4.3vw,54px)}
-.hero .wrap>*{max-width:58%}
-@media(max-width:1100px){.hero .wrap>*{max-width:none}.hero .viz-hero{width:100%;right:0;opacity:.22}}
+.hero .wrap>*{max-width:760px}
+@media(max-width:640px){.hero .viz-hero{margin:-20px auto 36px}}
 .formacao{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .timeline{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
 .timeline span{flex:1 1 120px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13.5px;color:var(--tx2)}
@@ -154,34 +154,76 @@ footer p{margin:0;color:var(--tx2)}
 <nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#produtos">Produtos</a><a href="#operacao">IA em operação</a><a href="#sistemas">Sistemas</a><a href="#engenharia">Engenharia</a><a href="#adocao">Adoção</a><a href="#dashboards">Dashboards</a><a href="#contato">Contato</a></div></div></nav>
 
 <header class="hero">
-  <div class="viz-hero" aria-hidden="true"><svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid meet">
+  <div class="viz-hero" aria-hidden="true"><svg viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet" fill="none" font-family="Geist Mono, ui-monospace, monospace">
   <defs>
-    <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#ffffff0a"/></pattern>
-    <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#0b0f0e"/><stop offset=".35" stop-color="#0b0f0e00"/></linearGradient>
+    <pattern id="cg" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#ffffff08"/></pattern>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#2dd4bf" stop-opacity=".35"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+    <linearGradient id="flux" x1="0" x2="1"><stop offset="0" stop-color="#2dd4bf" stop-opacity=".15"/><stop offset="1" stop-color="#2dd4bf" stop-opacity=".9"/></linearGradient>
   </defs>
-  <rect width="560" height="460" fill="url(#g)"/>
-  <g class="planta" fill="none" stroke="#33433f" stroke-width="1.4">
-    <rect x="60" y="60" width="300" height="250"/>
-    <path d="M60 150H180V60M180 150V230H60M180 230V310M250 60V200H360M250 200V310M180 270H250"/>
-    <path d="M130 150v-8m0 8h12M300 200v-10M210 230h14" stroke="#4d5f5a"/>
+  
+
+  <!-- CAMPO: planta -->
+  <g stroke="#3a4a46" stroke-width="1.3">
+    <rect x="30" y="70" width="270" height="250" rx="2"/>
+    <path d="M30 160H140V70M140 160V240H30M140 240V320M210 70V200H300M210 200V320M140 280H210"/>
   </g>
-  <g class="links" fill="none" stroke="#2dd4bf" stroke-width="1" stroke-dasharray="3 5" opacity=".55">
-    <path d="M110 105C220 60 330 70 430 120"/><path d="M215 110C300 95 360 110 430 140"/><path d="M120 190C250 170 340 160 430 160"/>
-    <path d="M300 130C350 130 390 160 430 180"/><path d="M215 270C300 250 360 220 430 200"/><path d="M310 260C360 250 400 230 430 220"/>
+  <g stroke="#55665f" stroke-width="1.3"><path d="M90 160v-9M90 160h12M260 200v-10M165 240h14M235 120h14"/></g>
+  <text x="30" y="56" font-size="10" fill="#7f8f8a" letter-spacing="1.6">CAMPO</text>
+  <text x="300" y="56" font-size="10" fill="#4d5f5a" text-anchor="end">fichas · chamados · fotos</text>
+
+  <!-- fluxos campo -> IA -->
+  <g class="links" stroke="url(#flux)" stroke-width="1.2" stroke-dasharray="3 6">
+    <path d="M80 110C220 110 300 175 405 195"/>
+    <path d="M180 120C260 140 320 180 405 198"/>
+    <path d="M85 200C220 205 300 200 405 200"/>
+    <path d="M255 150C320 170 360 190 405 202"/>
+    <path d="M180 290C280 270 340 225 405 205"/>
+    <path d="M260 270C330 255 370 225 405 208"/>
   </g>
   <g class="nos">
-    <circle cx="110" cy="105" r="4"/><circle cx="215" cy="110" r="4"/><circle cx="120" cy="190" r="4"/>
-    <circle cx="300" cy="130" r="4"/><circle cx="215" cy="270" r="4"/><circle cx="310" cy="260" r="4" class="alerta"/>
+    <circle cx="80" cy="110" r="4.5" fill="#2dd4bf"/><circle cx="180" cy="120" r="4.5" fill="#2dd4bf"/>
+    <circle cx="85" cy="200" r="4.5" fill="#2dd4bf"/><circle cx="255" cy="150" r="4.5" fill="#2dd4bf"/>
+    <circle cx="180" cy="290" r="4.5" fill="#2dd4bf"/><circle cx="260" cy="270" r="4.5" fill="#f5b54a" class="alerta"/>
   </g>
-  <g class="painel">
-    <rect x="430" y="96" width="112" height="158" rx="8" fill="#111816" stroke="#33433f"/>
-    <text x="442" y="116" font-family="Geist Mono" font-size="8" fill="#7f8f8a" letter-spacing=".08em">IA · TRIAGEM</text>
-    <rect x="442" y="126" width="70" height="7" rx="2" fill="#2dd4bf"/><rect x="442" y="139" width="52" height="7" rx="2" fill="#2dd4bf" opacity=".7"/>
-    <rect x="442" y="152" width="84" height="7" rx="2" fill="#f5b54a"/><rect x="442" y="165" width="36" height="7" rx="2" fill="#2dd4bf" opacity=".5"/>
-    <path d="M442 222l14-12 14 6 14-16 14 8 14-14" fill="none" stroke="#2dd4bf" stroke-width="1.6"/>
-    <text x="442" y="236" font-family="Geist Mono" font-size="7.5" fill="#7f8f8a">103 críticos</text><text x="442" y="246" font-family="Geist Mono" font-size="7.5" fill="#2dd4bf">R$ 0,70 / semana</text>
+
+  <!-- IA -->
+  <circle cx="455" cy="202" r="70" fill="url(#glow)"/>
+  <rect x="410" y="157" width="90" height="90" rx="16" fill="#111816" stroke="#2dd4bf" stroke-width="1.5"/>
+  <g stroke="#2dd4bf" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M428 202C443 186 467 186 482 202 467 218 443 218 428 202Z"/>
   </g>
-  <rect width="560" height="460" fill="url(#fade)"/>
+  <circle cx="455" cy="202" r="6" fill="#2dd4bf"/>
+  <g stroke="#2dd4bf" stroke-opacity=".5"><path d="M425 157v-8M455 157v-8M485 157v-8M425 247v8M455 247v8M485 247v8"/></g>
+  <text x="455" y="140" font-size="10" fill="#7f8f8a" letter-spacing="1.6" text-anchor="middle">IA</text>
+  <g font-size="9.5" fill="#b9c4c0" text-anchor="middle">
+    <text x="455" y="276">classifica</text><text x="455" y="291">prioriza</text><text x="455" y="306">confere</text>
+  </g>
+  <text x="455" y="326" font-size="8.5" fill="#4d5f5a" text-anchor="middle">regra no código · pessoa decide</text>
+
+  <!-- IA -> decisão -->
+  <path class="links" d="M500 202H560" stroke="url(#flux)" stroke-width="1.4" stroke-dasharray="3 6"/>
+  <path d="M556 197l6 5-6 5" stroke="#2dd4bf" stroke-width="1.4"/>
+
+  <!-- DECISÃO: painel -->
+  <text x="570" y="56" font-size="10" fill="#7f8f8a" letter-spacing="1.6">DECISÃO</text>
+  <rect x="570" y="70" width="300" height="250" rx="12" fill="#111816" stroke="#33433f"/>
+  <text x="590" y="98" font-size="9.5" fill="#7f8f8a" letter-spacing="1.2">FILA DA SEMANA</text>
+  <text x="850" y="98" font-size="9.5" fill="#2dd4bf" text-anchor="end">R$ 0,70</text>
+  <path d="M590 108H850" stroke="#243230"/>
+  <g font-size="10">
+    <g transform="translate(0,0)"><rect x="590" y="118" width="56" height="17" rx="8.5" fill="#3b1d1d" stroke="#f87171" stroke-opacity=".6"/><text x="618" y="130" fill="#fca5a5" text-anchor="middle" font-size="9">Crítico</text><text x="656" y="130" fill="#d6dcd9">fio exposto no quadro</text></g>
+    <g transform="translate(0,26)"><rect x="590" y="118" width="56" height="17" rx="8.5" fill="#3b2a12" stroke="#f5b54a" stroke-opacity=".6"/><text x="618" y="130" fill="#f5c97a" text-anchor="middle" font-size="9">Alto</text><text x="656" y="130" fill="#d6dcd9">ar-condicionado · sala técnica</text></g>
+    <g transform="translate(0,52)"><rect x="590" y="118" width="56" height="17" rx="8.5" fill="#3b2a12" stroke="#f5b54a" stroke-opacity=".6"/><text x="618" y="130" fill="#f5c97a" text-anchor="middle" font-size="9">Alto</text><text x="656" y="130" fill="#d6dcd9">portão da garagem travado</text></g>
+    <g transform="translate(0,78)"><rect x="590" y="118" width="56" height="17" rx="8.5" fill="#12302b" stroke="#2dd4bf" stroke-opacity=".5"/><text x="618" y="130" fill="#7fe3d5" text-anchor="middle" font-size="9">Médio</text><text x="656" y="130" fill="#9fb0ab">vazamento na copa</text></g>
+  </g>
+  <path d="M590 228H850" stroke="#243230"/>
+  <g>
+    <text x="590" y="250" font-size="9" fill="#7f8f8a">CRÍTICOS NO TOPO</text>
+    <text x="590" y="278" font-size="22" fill="#f1ede3" font-family="Archivo, sans-serif" font-weight="700">17 → 50</text>
+    <path d="M720 290l18-14 18 6 18-20 18 10 18-18 20-6" stroke="#2dd4bf" stroke-width="1.8"/>
+    <circle cx="850" cy="248" r="3" fill="#2dd4bf"/>
+  </g>
+  <text x="590" y="306" font-size="8.5" fill="#4d5f5a">exemplos fictícios</text>
 </svg></div>
   <div class="wrap">
     <div class="mono">Engenheiro eletricista · Belo Horizonte</div>

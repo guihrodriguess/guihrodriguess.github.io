@@ -147,6 +147,19 @@ footer p{margin:0;color:var(--tx2)}
 .timeline{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
 .timeline span{flex:1 1 120px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13.5px;color:var(--tx2)}
 .timeline b{display:block;color:var(--tx);font-size:14px}
+
+.brief{margin-top:22px;background:#f7f6f3;color:#2f3437;border-radius:10px;overflow:hidden;font-family:Geist}
+.brief-top{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid #e9e7e3;font-weight:600;font-size:14px}
+.brief-top .mono{color:#9b9a97;font-size:11px}
+.brief-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.brief-grid>div{padding:12px 16px;border-right:1px solid #e9e7e3}
+.brief-grid>div:last-child{border-right:0}
+.brief h5{margin:0 0 8px;font-size:13.5px}
+.brief ul{margin:0;padding-left:16px;font-size:13px;line-height:1.45}
+.brief li{margin-bottom:6px}
+.brief li em{display:block;font-style:normal;color:#0f766e;font-size:12.5px}
+@media(max-width:860px){.brief-grid{grid-template-columns:1fr 1fr}.brief-grid>div:nth-child(2){border-right:0}.brief-grid>div:nth-child(-n+2){border-bottom:1px solid #e9e7e3}}
+@media(max-width:520px){.brief-grid{grid-template-columns:1fr}.brief-grid>div{border-right:0;border-bottom:1px solid #e9e7e3}}
 </style>
 </head>
 <body>
@@ -324,6 +337,41 @@ footer p{margin:0;color:var(--tx2)}
         <div class="res"><span class="mono">Resultado</span><p>52 mil fotos indexadas; 10 apresentações semanais geradas.</p></div>
       </div>
       <div class="stack">open_clip ViT-B/32 · OpenCV (desfoque de rosto) · python-pptx</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>05</b>Briefing diário<br>seg a sex · 7h30</div>
+    <div>
+      <h3>O e-mail do dia já triado antes de eu abrir o Outlook</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Coordenar um contrato grande é começar o dia com dezenas de e-mails: chamados, prazos do cliente, fornecedores, RH e notificações automáticas, tudo misturado.</p></div>
+        <div><span class="mono">Solução</span><p>Um fluxo agendado pega os e-mails das últimas 24 horas e manda tudo numa única chamada de IA, que devolve JSON com quatro filas: ação imediata, alertas, ler hoje e pode arquivar. O fluxo cruza com o ponto da equipe para apontar inconsistências e cria a página do dia no Notion.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Cerca de 50 briefings gerados entre maio e agosto de 2026, todo dia útil, com custo zero de IA (uma chamada só, num modelo gratuito). A primeira meia hora do dia virou leitura de uma página.</p></div>
+      </div>
+      <div class="brief" aria-label="Exemplo de briefing com e-mails fictícios">
+        <div class="brief-top"><span>📬 Briefing — terça, 07h30</span><span class="mono">exemplo fictício</span></div>
+        <div class="brief-grid">
+          <div><h5>⚡ Ação imediata</h5><ul><li><b>Cliente</b> · Prazo da medição antecipado para quinta<em>→ revisar planilha hoje</em></li><li><b>Fornecedor</b> · Peça do chiller sem previsão<em>→ acionar alternativa</em></li><li><b>Ponto</b> · 2 marcações faltando na equipe B<em>→ cobrar supervisor</em></li></ul></div>
+          <div><h5>🚨 Alertas</h5><ul><li>Certidão vence em 6 dias</li><li>Técnico de férias na sexta: cobertura da unidade 12</li></ul></div>
+          <div><h5>📋 Ler hoje</h5><ul><li>Ata da reunião de segurança</li><li>Relatório semanal de chamados</li></ul></div>
+          <div><h5>🗑️ Pode arquivar</h5><ul><li>14 notificações automáticas</li><li>3 newsletters</li></ul></div>
+        </div>
+      </div>
+      <div class="stack">Power Automate · Outlook · LLM com saída em JSON (Groq) · API de ponto · Notion · uma chamada de IA por dia</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>06</b>Rotinas no Notion<br>em uso</div>
+    <div>
+      <h3>Radar de notícias e central de ritos, alimentados sozinhos</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Acompanhar IA, Power BI e normas de manutenção predial, e ainda manter atas e tarefas de todos os ritos do contrato, sem virar trabalho extra.</p></div>
+        <div><span class="mono">Solução</span><p>Rotinas agendadas montam um radar semanal (segunda: IA; terça: Power BI; quarta e quinta: manutenção predial). Reuniões viram transcrição, ata e tarefa numa central única de ritos.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Atualização técnica e gestão do contrato no mesmo lugar, sem abrir nada para alimentar.</p></div>
+      </div>
+      <div class="stack">Notion · rotinas agendadas · transcrição de reuniões · Claude</div>
     </div>
   </article>
 </div>

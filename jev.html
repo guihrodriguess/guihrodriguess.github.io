@@ -197,7 +197,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 </div></section>
 
 <section aria-labelledby="h-cost"><div class="wrap">
-  <div class="sec-h"><div class="mono">Resultado real</div><div><h2 id="h-cost">Quanto custa</h2><p class="note">O Jev cobra só o que entra: US$ 0,042 por milhão de tokens de entrada (preço público em 27/09/2026). A resposta, curta e tipada, não é cobrada.</p></div></div>
+  <div class="sec-h"><div class="mono">Resultado real</div><div><h2 id="h-cost">Quanto custa</h2><p class="note">O Jev cobra só o que entra: cerca de R$ 0,23 por milhão de tokens de entrada (preço público em 27/09/2026, convertido a R$ 5,40 por dólar). A resposta, curta e tipada, não é cobrada.</p></div></div>
   <div class="grid3">
     <div class="card"><h3>O backlog inteiro</h3><div class="rows">
       <div><span>1. Especialidade</span><span>32 s · R$ 0,34</span></div>
@@ -207,7 +207,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
       <div class="tot"><span>Total</span><span>2 min · R$ 0,91</span></div>
     </div><p class="small" style="margin:0">Cerca de R$ 0,001 por chamado nas quatro análises juntas.</p></div>
     <div class="card"><h3>E se o volume fosse maior?</h3>
-      <div class="fx"><label for="vol">Itens</label><input id="vol" type="number" min="1" step="1000" value="100000"><label for="fx">US$ 1 = R$</label><input id="fx" type="number" min="0.01" step="0.01" value="5.40" style="width:80px"></div>
+      <div class="fx"><label for="vol">Itens</label><input id="vol" type="number" min="1" step="1000" value="100000"><input id="fx" type="hidden" value="5.40"></div>
       <div class="rows" id="proj"></div>
       <p class="small" style="margin:0">Estimativa linear: ~1.700 tokens por item, 1.200 requisições por minuto.</p></div>
     <div class="card"><h3>Por que é tão barato</h3>
@@ -461,7 +461,7 @@ function renderProj(){
   var n = Math.max(1, Math.round(parseFloat($("#vol").value) || 0)), u = n*1700*PRECO, min = n/1200;
   var t = min < 1 ? nf(min*60) + " s" : min < 90 ? nf(min) + " min" : nf(min/60, 1) + " h";
   $("#proj").innerHTML = '<div><span>' + nf(n) + ' itens</span><span>' + t + '</span></div>' +
-    '<div><span>Custo em dólar</span><span>' + usd(u) + '</span></div>' +
+    
     '<div class="tot"><span>Custo em reais</span><span>' + brl(u*fx()) + '</span></div>';
 }
 $("#vol").addEventListener("input", function(){ renderProj(); r1(); r2(); });

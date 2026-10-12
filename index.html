@@ -130,14 +130,59 @@ footer p{margin:0;color:var(--tx2)}
 .panel{display:none}.panel.on{display:block}
 #casos{padding-top:40px}
 @media(max-width:640px){.tabs{flex-wrap:nowrap;overflow-x:auto}.tabs a{white-space:nowrap;padding:10px 12px}}
+
+.hero .viz-hero{position:absolute;top:0;bottom:0;right:max(0px,calc((100vw - 1180px)/2));width:44%;opacity:.95}
+.hero .viz-hero svg{width:100%;height:100%}
+.viz-hero .nos circle{fill:#2dd4bf;transform-box:fill-box;transform-origin:center;animation:pulso 2.8s ease-in-out infinite}
+.viz-hero .nos circle:nth-child(2){animation-delay:.5s}.viz-hero .nos circle:nth-child(3){animation-delay:1s}.viz-hero .nos circle:nth-child(4){animation-delay:1.5s}.viz-hero .nos circle:nth-child(5){animation-delay:2s}
+.viz-hero .nos .alerta{fill:#f5b54a}
+.viz-hero .links path{animation:fluxo 6s linear infinite}
+@keyframes pulso{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.9);opacity:.35}}
+@keyframes fluxo{to{stroke-dashoffset:-80}}
+@media(prefers-reduced-motion:reduce){.viz-hero *{animation:none!important}}
+.hero h1{font-size:clamp(34px,4.3vw,54px)}
+.hero .wrap>*{max-width:58%}
+@media(max-width:1100px){.hero .wrap>*{max-width:none}.hero .viz-hero{width:100%;right:0;opacity:.22}}
+.formacao{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.timeline{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.timeline span{flex:1 1 120px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13.5px;color:var(--tx2)}
+.timeline b{display:block;color:var(--tx);font-size:14px}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#produtos">Produtos</a><a href="#operacao">IA em operação</a><a href="#engenharia">Engenharia</a><a href="#dashboards">Dashboards</a><a href="#contato">Contato</a></div></div></nav>
+<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#produtos">Produtos</a><a href="#operacao">IA em operação</a><a href="#sistemas">Sistemas</a><a href="#engenharia">Engenharia</a><a href="#adocao">Adoção</a><a href="#dashboards">Dashboards</a><a href="#contato">Contato</a></div></div></nav>
 
 <header class="hero">
-  <div class="foto"></div><div class="veu"></div>
+  <div class="viz-hero" aria-hidden="true"><svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid meet">
+  <defs>
+    <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#ffffff0a"/></pattern>
+    <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#0b0f0e"/><stop offset=".35" stop-color="#0b0f0e00"/></linearGradient>
+  </defs>
+  <rect width="560" height="460" fill="url(#g)"/>
+  <g class="planta" fill="none" stroke="#33433f" stroke-width="1.4">
+    <rect x="60" y="60" width="300" height="250"/>
+    <path d="M60 150H180V60M180 150V230H60M180 230V310M250 60V200H360M250 200V310M180 270H250"/>
+    <path d="M130 150v-8m0 8h12M300 200v-10M210 230h14" stroke="#4d5f5a"/>
+  </g>
+  <g class="links" fill="none" stroke="#2dd4bf" stroke-width="1" stroke-dasharray="3 5" opacity=".55">
+    <path d="M110 105C220 60 330 70 430 120"/><path d="M215 110C300 95 360 110 430 140"/><path d="M120 190C250 170 340 160 430 160"/>
+    <path d="M300 130C350 130 390 160 430 180"/><path d="M215 270C300 250 360 220 430 200"/><path d="M310 260C360 250 400 230 430 220"/>
+  </g>
+  <g class="nos">
+    <circle cx="110" cy="105" r="4"/><circle cx="215" cy="110" r="4"/><circle cx="120" cy="190" r="4"/>
+    <circle cx="300" cy="130" r="4"/><circle cx="215" cy="270" r="4"/><circle cx="310" cy="260" r="4" class="alerta"/>
+  </g>
+  <g class="painel">
+    <rect x="430" y="96" width="112" height="150" rx="8" fill="#111816" stroke="#33433f"/>
+    <text x="442" y="116" font-family="Geist Mono" font-size="8" fill="#7f8f8a" letter-spacing=".08em">IA · TRIAGEM</text>
+    <rect x="442" y="126" width="70" height="7" rx="2" fill="#2dd4bf"/><rect x="442" y="139" width="52" height="7" rx="2" fill="#2dd4bf" opacity=".7"/>
+    <rect x="442" y="152" width="84" height="7" rx="2" fill="#f5b54a"/><rect x="442" y="165" width="36" height="7" rx="2" fill="#2dd4bf" opacity=".5"/>
+    <path d="M442 222l14-12 14 6 14-16 14 8 14-14" fill="none" stroke="#2dd4bf" stroke-width="1.6"/>
+    <text x="442" y="238" font-family="Geist Mono" font-size="7.5" fill="#7f8f8a">103 críticos · US$ 0,13</text>
+  </g>
+  <rect width="560" height="460" fill="url(#fade)"/>
+</svg></div>
   <div class="wrap">
     <div class="mono">Engenheiro eletricista · Belo Horizonte</div>
     <h1 style="margin-top:14px">Do contrato de manutenção<br>à IA que vai <em>para produção.</em></h1>
@@ -151,14 +196,16 @@ footer p{margin:0;color:var(--tx2)}
   <div><b>100+</b><span>pessoas em campo coordenadas</span></div>
   <div><b>3</b><span>produtos SaaS construídos do zero</span></div>
   <div><b>99,75%</b><span>de coincidência no piloto do Audit</span></div>
-  <div><b>R$ 0,001</b><span>por chamado classificado com IA</span></div>
+  <div><b>US$ 0,13</b><span>por semana na triagem de chamados com IA</span></div>
 </div></div>
 
 <section id="casos"><div class="wrap">
   <div class="tabs" role="tablist">
     <a role="tab" href="#produtos" data-t="produtos">Produtos com IA</a>
     <a role="tab" href="#operacao" data-t="operacao">IA em operação</a>
+    <a role="tab" href="#sistemas" data-t="sistemas">Sistemas internos</a>
     <a role="tab" href="#engenharia" data-t="engenharia">Engenharia de IA</a>
+    <a role="tab" href="#adocao" data-t="adocao">Adoção de IA</a>
     <a role="tab" href="#dashboards" data-t="dashboards">Dashboards · 2022</a>
   </div>
 <div class="panel" id="p-produtos" role="tabpanel">
@@ -183,42 +230,58 @@ footer p{margin:0;color:var(--tx2)}
   </article>
 </div>
 <div class="panel" id="p-operacao" role="tabpanel">
-  <div class="sec-h"><div class="mono">IA em operação</div><div><h2>IA dentro da <em>rotina do contrato.</em></h2><p>Soluções que nasceram de gargalos reais da operação e rodaram com dado real. Cada caso com problema, solução e resultado medido.</p></div></div>
+  <div class="sec-h"><div class="mono">IA em operação</div><div><h2>IA dentro da <em>rotina do contrato.</em></h2><p>Soluções que nasceram de gargalos de um contrato de manutenção predial com cerca de 140 pessoas e rodam com dado real. Vários desses módulos viraram base dos produtos da Atestra.</p></div></div>
+
   <article class="caso">
-    <div class="n"><b>01</b>Auditoria de campo<br>piloto em operação real</div>
+    <div class="n"><b>01</b>Triagem de chamados<br>rotina semanal · piloto</div>
     <div>
-      <h3>Fichas de PMOC e inspeção conferidas em segundos, não em minutos</h3>
+      <h3>Do backlog bagunçado a uma lista semanal do que olhar primeiro</h3>
       <div class="pso">
-        <div><span class="mono">Problema</span><p>Cada relatório de PMOC ou inspeção consumia de 5 a 10 minutos de um profissional. Com volume, a conferência virava carimbo.</p></div>
-        <div><span class="mono">Solução</span><p>O sistema aprende o formato de cada relatório e lê sem IA; a IA fica para o que é novo e para uma amostra de controle. O que é incerto vai para revisão humana.</p></div>
-        <div class="res"><span class="mono">Resultado</span><p>A leitura pelo formato aprendido coincidiu em 99,75% com a leitura da IA. O custo de IA caiu para uma amostra de 5%.</p></div>
+        <div><span class="mono">Problema</span><p>Dezenas de milhares de chamados desde 2022, mal classificados e com a prioridade de quem abriu: 82% marcados como "Baixa".</p></div>
+        <div><span class="mono">Solução</span><p>Pipeline em seis análises (especialidade, risco, fila, escopo, duplicados e relato de fechamento). A IA só escolhe opção e devolve probabilidade; pesos e cortes ficam no código. Toda semana sai, para cada supervisor, um rascunho de e-mail com os chamados para olhar, que nunca é enviado sozinho.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>21% do backlog era Crítico ou Alto marcado como "Baixa". 16.586 relatos de fechamento lidos por US$ 0,81: onde a IA apontou serviço não executado, a insatisfação do cliente foi o dobro (1,10% contra 0,55%). Cada rodada semanal custa US$ 0,13.</p></div>
       </div>
-      <div class="stack">Python · extração de PDF · Claude API · regras por contrato · relatório com ações corretivas por prioridade</div>
+      <div class="stack">Python · classificação com probabilidade (Jev, TypeSafe AI) · fila ponderada · mascaramento de dados pessoais · Power BI · agendamento</div>
+      <div class="lk"><a href="jev.html">Abrir o Laboratório Jev, com chamados fictícios →</a></div>
     </div>
   </article>
+
   <article class="caso">
-    <div class="n"><b>02</b>Assistente de contrato<br>RAG no Microsoft Teams</div>
+    <div class="n"><b>02</b>Auditoria de campo<br>em uso semanal</div>
+    <div>
+      <h3>Fichas de PMOC e inspeções conferidas contra a norma, toda segunda-feira</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Ficha de campo conferida no olho: medição zerada, foto faltando e foto copiada de outra ficha passavam batido.</p></div>
+        <div><span class="mono">Solução</span><p>Um robô baixa as fichas toda segunda; 11 regras de norma geram os apontamentos (tensão fora de ±10%, falta de foto antes/depois, valores copiados). Hash de imagem pega foto reaproveitada. Relatório por técnico e painel comparando períodos.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>426 relatórios de PMOC e 119 de inspeção em 10 meses; 48.719 fotos indexadas contra reuso. No produto, a leitura pelo formato aprendido coincidiu em 99,75% com a da IA, que passou a entrar só numa amostra de 5%.</p></div>
+      </div>
+      <div class="stack">Python · Playwright · pdfplumber · OCR · CLIP · Streamlit → React + PostgreSQL</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>03</b>Assistente de contrato<br>RAG no Microsoft Teams · piloto</div>
     <div>
       <h3>Perguntar ao contrato em linguagem natural, com a fonte citada</h3>
       <div class="pso">
-        <div><span class="mono">Problema</span><p>Achar prazo de atendimento, multa ou cláusula de convenção coletiva levava horas de leitura manual.</p></div>
-        <div><span class="mono">Solução</span><p>Busca híbrida (vetorial e lexical), roteamento por sigla de sindicato, temperatura 0 e citação obrigatória. Sem base suficiente, o bot recusa em vez de inventar. CPF, CNPJ e RG mascarados antes de indexar e de novo na resposta.</p></div>
-        <div class="res"><span class="mono">Resultado</span><p>Resposta em segundos com o arquivo de origem. Avaliação com banco de perguntas por perfil e por classe (factual, multi-hop, agregação, conflito de vigência).</p></div>
+        <div><span class="mono">Problema</span><p>Achar prazo, multa, plantão ou cláusula de convenção coletiva entre cerca de 100 documentos levava horas.</p></div>
+        <div><span class="mono">Solução</span><p>Busca híbrida (vetorial e lexical) e um roteador que manda pergunta de lista para SQL, sobre uma base estruturada extraída do contrato (POPs, SLAs, plantões). Temperatura 0 e citação obrigatória: sem base, o bot recusa. Dados pessoais mascarados antes de indexar e na resposta.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Base de 1.866 trechos; cerca de R$ 0,0035 por pergunta. Resposta com o arquivo de origem em 7 a 16 segundos. Em calibração: o banco de perguntas de avaliação está montado, a pontuação ainda não.</p></div>
       </div>
-      <div class="stack">Python · embeddings · busca híbrida · Azure Bot Service · Microsoft Teams · LGPD</div>
+      <div class="stack">FastAPI · LangChain · ChromaDB · SQLite · Azure Bot Service · Microsoft Teams · LGPD</div>
     </div>
   </article>
+
   <article class="caso">
-    <div class="n"><b>03</b>Triagem de chamados<br>série com o Jev (TypeSafe AI)</div>
+    <div class="n"><b>04</b>Busca em fotos de campo<br>uso semanal</div>
     <div>
-      <h3>Classificar, priorizar e destravar chamados por R$ 0,001 cada</h3>
+      <h3>Achar a foto certa entre 52 mil, digitando o que se procura</h3>
       <div class="pso">
-        <div><span class="mono">Problema</span><p>Chamados de manutenção chegam escritos do jeito que dá, muitos caem em "Outros", e a prioridade é a de quem abriu: 82% marcados como "Baixa".</p></div>
-        <div><span class="mono">Solução</span><p>A IA só escolhe opção, dá nota ou responde sim/não, sempre com probabilidade. Pesos, cortes e a fila ficam no código, e mudam sem rodar a IA de novo.</p></div>
-        <div class="res"><span class="mono">Resultado</span><p>90% de acerto na área e 83% na especialidade. 21% do backlog era risco Crítico ou Alto marcado como "Baixa". Críticos entre os 50 primeiros da fila: de 17 para 50.</p></div>
+        <div><span class="mono">Problema</span><p>Montar toda semana o diálogo de segurança com fotos reais de campo exigia garimpar relatório por relatório.</p></div>
+        <div><span class="mono">Solução</span><p>Índice semântico das fotos extraídas dos relatórios: busca por texto ("extintor vencido", "escada sem calço"), rostos desfocados automaticamente e apresentação gerada por script.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>52 mil fotos indexadas; 10 apresentações semanais geradas.</p></div>
       </div>
-      <div class="stack">Classificação com probabilidade · índice de risco · fila ponderada · mascaramento de dados pessoais · R$ 0,91 no backlog inteiro</div>
-      <div class="lk"><a href="jev.html">Abrir o Laboratório Jev, com chamados fictícios →</a></div>
+      <div class="stack">open_clip ViT-B/32 · OpenCV (desfoque de rosto) · python-pptx</div>
     </div>
   </article>
 </div>
@@ -235,6 +298,49 @@ footer p{margin:0;color:var(--tx2)}
       </div>
       <div class="stack">Next.js · Vercel AI SDK · PostgreSQL RLS · Docker Compose · GitHub Actions</div>
       <div class="lk"><a href="https://github.com/guihrodriguess/ai-engineering-portfolio">Repositório →</a><a href="https://ai-agente-controle-execucao.vercel.app">Demo do agente →</a><a href="https://ai-pipeline-classificacao.vercel.app">Demo do classificador →</a></div>
+    </div>
+  </article>
+</div>
+<div class="panel" id="p-sistemas" role="tabpanel">
+  <div class="sec-h"><div class="mono">Sistemas internos</div><div><h2>Software de verdade <em>para a área de apoio.</em></h2><p>Sistemas feitos para a empresa em que coordeno contratos, fora da Atestra. Descritos sem dados e sem nomes.</p></div></div>
+  <article class="caso">
+    <div class="n"><b>01</b>Fluxo de admissão<br>aprovado · implantação</div>
+    <div>
+      <h3>Admissão de pessoal com a regra dentro do banco, não na planilha</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Formulários, 12 fluxos automáticos frágeis e uma planilha de 741 linhas com 171 grafias de cargo, CPF aberto e nenhum registro de quem viu o quê.</p></div>
+        <div><span class="mono">Solução</span><p>Fluxo por área com prazo e cobrança automática. Permissão por perfil aplicada no banco (Row-Level Security), log de auditoria sem CPF, anonimização mensal pela LGPD, acesso só por túnel e rotas de administração fechadas no proxy. Assistente que responde pelo manual e usa IA só como reserva.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>1.115 testes de banco e um teste de ponta a ponta com 74 passos. Com 50 pessoas simultâneas, 0,18 s de mediana; com 100, zero erros. Aprovado pela diretoria; treinamento pronto.</p></div>
+      </div>
+      <div class="timeline"><span><b>1 · Pedido</b>vaga aberta</span><span><b>2 · Aprovação</b>prazo e lembrete</span><span><b>3 · Exames</b>saúde ocupacional</span><span><b>4 · Registro</b>departamento pessoal</span><span><b>5 · Liberação</b>no cliente</span></div>
+      <div class="stack">React · TypeScript · Supabase/PostgreSQL com RLS · pgTAP · Caddy · Cloudflare Tunnel · pg_cron · 440 commits em 18 dias</div>
+    </div>
+  </article>
+  <article class="caso">
+    <div class="n"><b>02</b>Apps de apoio<br>em uso</div>
+    <div>
+      <h3>Catálogos, faturamento e um painel que mostra se a equipe usa cada app</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Informação de fornecedores, estabelecimentos e faturamento espalhada em planilhas, sem saber o que de fato era usado.</p></div>
+        <div><span class="mono">Solução</span><p>Apps web pequenos e focados, cada um com login, e telemetria própria de uso por app.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Adoção medida em vez de suposta: o painel de uso diz quem usa, o quê e com que frequência.</p></div>
+      </div>
+      <div class="stack">Supabase · Vercel · Neon · telemetria de uso</div>
+    </div>
+  </article>
+</div>
+<div class="panel" id="p-adocao" role="tabpanel">
+  <div class="sec-h"><div class="mono">Adoção de IA</div><div><h2>Levar IA para quem <em>não é da área técnica.</em></h2><p>Programa de treinamento desenhado para gestores, coordenadores e analistas de uma empresa de facilities. Ainda não aplicado; o resultado entra aqui depois da primeira turma.</p></div></div>
+  <article class="caso">
+    <div class="n"><b>01</b>Treinamento<br>4 aulas · 8 horas</div>
+    <div>
+      <h3>Do primeiro pedido ao Cowork, ao Code e às Skills, com regra de dados desde a aula 1</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>As mesmas quatro frentes tomam tempo em todo contrato (e-mails, documentos, planilhas, relatórios), e IA sem regra vira risco de dado sensível.</p></div>
+        <div><span class="mono">Solução</span><p>Quatro terças de 2 horas: fundamentos e regras de uso, Claude Chat na prática, Cowork e Code, e cinco casos reais (análise de contrato, alertas sem custo de API, Power BI, padronização de POPs e briefing diário de e-mail com Skill). Quiz e pesquisa em toda aula, roteiro do instrutor e certificado.</p></div>
+        <div class="res"><span class="mono">Entrega</span><p>59 slides, material de leitura por aula, guias de quiz e pesquisa e um plano de implantação com pagamento e login único (SSO) no Microsoft 365.</p></div>
+      </div>
+      <div class="timeline"><span><b>Aula 1</b>Fundamentos e regras</span><span><b>Aula 2</b>Chat na prática</span><span><b>Aula 3</b>Cowork e Code</span><span><b>Aula 4</b>Casos e Skills</span></div>
     </div>
   </article>
 </div>
@@ -286,6 +392,9 @@ footer p{margin:0;color:var(--tx2)}
     <div><b>Regra no código.</b><p>A IA responde pergunta fechada; peso e corte ficam auditáveis.</p></div>
     <div><b>Custo medido.</b><p>Custo de IA por documento e teto por cliente, antes de escalar.</p></div>
   </div>
+
+  <div class="sec-h" style="margin:56px 0 0"><div class="mono">Formação contínua</div><div><h3>Anthropic Academy, 2026</h3><p style="color:var(--tx2);margin:10px 0 0">Cerca de 24 cursos estudados, com foco no que uso no dia a dia:</p>
+  <div class="formacao"><span class="chip">Building with the Claude API</span><span class="chip">Claude Code in Action</span><span class="chip">Model Context Protocol (básico e avançado)</span><span class="chip">Agent Skills</span><span class="chip">Subagents</span><span class="chip">AI Fluency</span><span class="chip">AI Capabilities and Limitations</span><span class="chip">Claude Enterprise</span><span class="chip">AI-native SDLC</span><span class="chip">Amazon Bedrock · Vertex AI</span></div></div></div>
 </div></section>
 
 <footer id="contato"><div class="wrap">
@@ -295,7 +404,7 @@ footer p{margin:0;color:var(--tx2)}
 
 <script>
 (function(){
-  var ids=["produtos","operacao","engenharia","dashboards"];
+  var ids=["produtos","operacao","sistemas","engenharia","adocao","dashboards"];
   function show(id,scroll){
     if(ids.indexOf(id)<0) id="produtos";
     ids.forEach(function(x){

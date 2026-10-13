@@ -118,6 +118,41 @@ section{padding:88px 0;border-bottom:1px solid var(--line)}
 @media(max-width:860px){.dashs{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.dashs{grid-template-columns:1fr}}
 
+/* painéis de contrato (mockups) */
+.pbi{margin-top:22px;background:#f6f7f9;border-radius:10px;overflow:hidden;color:#1d2433;font-family:Geist}
+.pbi-top{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#16233a;color:#fff;padding:10px 14px;font-weight:600;font-size:13.5px}
+.pbi-top i{font-style:normal;white-space:nowrap;font-family:"Geist Mono";font-size:11px;opacity:.65}
+.pbi-in{display:grid;grid-template-columns:150px 1fr}
+.pbi-nav{background:#1f2f4b;padding:10px 0;font-size:12.5px}
+.pbi-nav span{display:block;padding:7px 14px;color:#c4cede}
+.pbi-nav span.on{background:#2b3f63;color:#fff;border-left:3px solid #2dd4bf;padding-left:11px}
+.pbi-main{padding:12px;display:grid;gap:10px}
+.pbi-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pbi-kpis div{background:#fff;border-radius:6px;padding:8px 10px;box-shadow:0 1px 0 #e3e6eb}
+.pbi-kpis small{display:block;font-size:10.5px;color:#6b7387}
+.pbi-kpis b{font-size:17px}
+.pbi-kpis b.ok{color:#0f766e}.pbi-kpis b.al{color:#b45309}
+.pbi-row{display:grid;grid-template-columns:1.2fr 1fr;gap:10px}
+.pbi-card{background:#fff;border-radius:6px;padding:10px;box-shadow:0 1px 0 #e3e6eb}
+.pbi-card h6{margin:0 0 8px;font-size:11.5px;color:#4b5468;font-weight:600}
+.pbi-card svg{display:block;width:100%;height:auto}
+.aneis{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center;font-size:10.5px;color:#4b5468}
+.aneis svg{width:64px;height:64px;margin:0 auto}
+.dre{width:100%;border-collapse:collapse;font-size:11.5px}
+.dre td{padding:3px 4px;border-bottom:1px solid #eef0f3}
+.dre td:last-child{text-align:right;font-family:"Geist Mono";font-size:11px}
+.dre tr.t td{font-weight:700;border-top:1px solid #c9ced8}
+.dre td.v{color:#9aa1b0;font-style:italic}
+.pbi-foot{font-size:11px;color:#6b7387;padding:0 12px 10px}
+@media(max-width:760px){.pbi-in{grid-template-columns:1fr}.pbi-nav{display:flex;overflow-x:auto;padding:0}.pbi-nav span{white-space:nowrap}.pbi-nav span.on{border-left:0;border-bottom:3px solid #2dd4bf;padding-left:14px}.pbi-kpis{grid-template-columns:1fr 1fr}.pbi-row{grid-template-columns:1fr}.aneis{grid-template-columns:repeat(2,1fr)}}
+.radar-t{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+.radar-t th{text-align:left;font-weight:500;color:#9b9a97;font-size:12px;padding:8px 16px 6px 0}
+.radar-t td{padding:8px 16px 8px 0;border-top:1px solid #e9e7e3;vertical-align:top}
+.radar-t th:first-child,.radar-t td:first-child{padding-left:16px;width:44px}
+.radar-t td:last-child{color:#0f766e;font-size:12.5px}
+.radar-t tr.fora td{color:#9b9a97}.radar-t tr.fora td:first-child{color:#b91c1c}
+.sub-h{margin:64px 0 0;padding-top:40px;border-top:1px solid var(--line)}
+
 footer{padding:56px 0 72px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
 footer p{margin:0;color:var(--tx2)}
@@ -164,7 +199,7 @@ footer p{margin:0;color:var(--tx2)}
 </head>
 <body>
 
-<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#produtos">Produtos</a><a href="#operacao">IA em operação</a><a href="#sistemas">Sistemas</a><a href="#engenharia">Engenharia</a><a href="#adocao">Adoção</a><a href="#dashboards">Dashboards</a><a href="#contato">Contato</a></div></div></nav>
+<nav><div class="wrap"><b>Guilherme Rodrigues</b><div class="links"><a href="#produtos">Produtos</a><a href="#operacao">IA em operação</a><a href="#sistemas">Sistemas</a><a href="#engenharia">Engenharia</a><a href="#adocao">Adoção</a><a href="#dashboards">Dados e BI</a><a href="#contato">Contato</a></div></div></nav>
 
 <header class="hero">
   <div class="viz-hero" aria-hidden="true"><svg viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet" fill="none" font-family="Geist Mono, ui-monospace, monospace">
@@ -261,7 +296,7 @@ footer p{margin:0;color:var(--tx2)}
     <a role="tab" href="#sistemas" data-t="sistemas">Sistemas internos</a>
     <a role="tab" href="#engenharia" data-t="engenharia">Engenharia de IA</a>
     <a role="tab" href="#adocao" data-t="adocao">Adoção de IA</a>
-    <a role="tab" href="#dashboards" data-t="dashboards">Dashboards · 2022</a>
+    <a role="tab" href="#dashboards" data-t="dashboards">Dados e Power BI</a>
   </div>
 <div class="panel" id="p-produtos" role="tabpanel">
   <div class="sec-h"><div class="mono">Produtos</div><div><h2>Software com IA, <em>do zero ao ar.</em></h2><p>Produtos que construí sozinho, com arquitetura, código e preço definidos por mim. Demonstrações abertas, sem cadastro.</p></div></div>
@@ -435,9 +470,126 @@ footer p{margin:0;color:var(--tx2)}
   </article>
 </div>
 <div class="panel" id="p-dashboards" role="tabpanel">
-  <div class="sec-h"><div class="mono">Arquivo · 2022</div><div><h2>Painéis em Power BI, <em>onde comecei.</em></h2><p>Seis painéis feitos em 2022, em cursos de Power BI e análise de dados (Hashtag Treinamentos e Empowerdata), com empresas e dados fictícios.</p></div></div>
+  <div class="sec-h"><div class="mono">Dados e Power BI</div><div><h2>O painel que <em>o contrato usa para decidir.</em></h2><p>Modelos de dados feitos para a operação que coordeno, com a regra do contrato dentro da medida e não na cabeça de quem lê. Telas redesenhadas com números fictícios, sem nome de cliente nem de empresa.</p></div></div>
 
-  <div class="aviso"><span class="tag">2022</span><div>Hoje minha entrega é outra: em vez de um painel para alguém olhar, sistemas que leem o documento, conferem contra a regra e dizem o que fazer. Os mockups abaixo são redesenhos com números fictícios; os painéis originais e interativos estão no portfólio antigo.</div></div>
+  <article class="caso">
+    <div class="n"><b>01</b>Gestão do contrato<br>Power BI · em uso</div>
+    <div>
+      <h3>Um painel para operar um contrato de manutenção com várias regionais</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Prazo de chamado, indicador contratual, mão de obra, frota, estoque e extintores viviam em dezenas de planilhas e no sistema de ponto. Cada reunião começava com alguém montando o número da semana.</p></div>
+        <div><span class="mono">Solução</span><p>Um modelo estrela alimentado pelo SharePoint e pela API do ponto (OAuth2 com paginação), com funções próprias de Power Query para data, hora e nome escritos de jeitos diferentes. As metas dos 15 indicadores do contrato ficam na medida e o anel de progresso é desenhado em SVG. Os eixos dos gráficos mudam por parâmetro de campo.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>94 tabelas, 737 medidas e 76 páginas numa navegação de aplicativo com tela de acesso por perfil. Operação, contrato, pessoas, frota, ativos e segurança passaram a ser lidos no mesmo lugar.</p></div>
+      </div>
+      <div class="pbi" aria-label="Mockup do painel de gestão com dados fictícios">
+        <div class="pbi-top"><span>Gestão do contrato · Indicadores</span><i>dados fictícios</i></div>
+        <div class="pbi-in">
+          <div class="pbi-nav"><span>Operação</span><span class="on">Indicadores</span><span>Pessoas</span><span>Frota e gastos</span><span>Ativos e SPCI</span><span>Segurança</span></div>
+          <div class="pbi-main">
+            <div class="pbi-kpis">
+              <div><small>Corretivas no prazo</small><b class="ok">93,4%</b></div>
+              <div><small>Backlog aberto</small><b>128</b></div>
+              <div><small>Preventivas cumpridas</small><b class="ok">96,1%</b></div>
+              <div><small>Pendências em risco (7 dias)</small><b class="al">9</b></div>
+            </div>
+            <div class="pbi-row">
+              <div class="pbi-card"><h6>Indicadores do contrato · realizado × meta do ano</h6>
+                <div class="aneis">
+                  <div><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="32" cy="32" r="24" fill="none" stroke="#0f766e" stroke-width="7" stroke-linecap="round" stroke-dasharray="138.7 150.8" transform="rotate(-90 32 32)"/><text x="32" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#1d2433">92%</text></svg>Atendimento<br>meta 85%</div>
+                  <div><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="32" cy="32" r="24" fill="none" stroke="#d97706" stroke-width="7" stroke-linecap="round" stroke-dasharray="132.7 150.8" transform="rotate(-90 32 32)"/><text x="32" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#1d2433">88%</text></svg>Preventiva<br>meta 90%</div>
+                  <div><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="32" cy="32" r="24" fill="none" stroke="#0f766e" stroke-width="7" stroke-linecap="round" stroke-dasharray="146.3 150.8" transform="rotate(-90 32 32)"/><text x="32" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#1d2433">97%</text></svg>Qualidade<br>meta 95%</div>
+                  <div><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="32" cy="32" r="24" fill="none" stroke="#0f766e" stroke-width="7" stroke-linecap="round" stroke-dasharray="122.1 150.8" transform="rotate(-90 32 32)"/><text x="32" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#1d2433">81%</text></svg>Satisfação<br>meta 80%</div>
+                </div>
+              </div>
+              <div class="pbi-card"><h6>Chamados criados × encerrados · média móvel de 3 meses</h6>
+                <svg viewBox="0 0 300 110" role="img" aria-label="Linhas de chamados criados e encerrados em 12 meses"><g stroke="#eef0f3"><path d="M0 20H300M0 50H300M0 80H300"/></g><polyline fill="none" stroke="#94a3b8" stroke-width="2" points="0,60 27,48 54,55 81,40 108,46 135,35 162,42 189,30 216,38 243,28 270,34 300,26"/><polyline fill="none" stroke="#0f766e" stroke-width="2.5" points="0,70 27,58 54,57 81,47 108,46 135,40 162,40 189,34 216,35 243,31 270,32 300,28"/><g font-size="9" fill="#6b7387"><text x="0" y="104">out</text><text x="275" y="104">set</text></g><g font-size="9"><text x="150" y="104" fill="#94a3b8">— criados</text><text x="205" y="104" fill="#0f766e">— encerrados</text></g></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pbi-foot">Redesenho com números fictícios. No original, cada anel compara com a meta daquele ano do contrato e muda de cor sozinho.</div>
+      </div>
+      <div class="stack">Power BI · Power Query (M) com funções próprias · SharePoint · API REST com OAuth2 · DAX: USERELATIONSHIP, TREATAS, parâmetros de campo, SVG em medida · modelo estrela com 104 relacionamentos</div>
+      <div class="lk"><span style="color:var(--tx3);font-size:14px">O que eu faria diferente hoje: levar o acesso por perfil para Row-Level Security, tirar as metas do DAX para uma tabela e dividir o modelo por assunto.</span></div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>02</b>Controle financeiro<br>Power BI · 2026</div>
+    <div>
+      <h3>Separar o que é reajuste, o que é ganho real e o que é só o começo do contrato</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Num contrato de 48 meses com 18 módulos e parte da execução subcontratada, a planilha de medição mostrava diferença contra o planejado sem dizer o porquê. Reajuste, glosa e o mês de mobilização se misturavam, e uma diferença aparecia só porque o planejado não estava reajustado.</p></div>
+        <div><span class="mono">Solução</span><p>O Power Query lê só a medição mais recente de cada ano, acha o cabeçalho sozinho e não conta dezembro duas vezes. O planejado busca o ciclo de reajuste vigente em cada competência. O fim da mobilização é o primeiro mês com 95% de execução: o que fica antes dele é ramp-up, não queda de desempenho. A DRE sai de uma tabela desconectada e deixa em branco o que não teve lançamento, em vez de mostrar zero.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>A diferença falsa contra o planejado sumiu. Receita própria e repasse às subcontratadas ficaram separados por módulo, e orçado, dotação, tendência e real ficaram lado a lado. São 112 medidas documentadas, e o painel abre sempre na última competência.</p></div>
+      </div>
+      <div class="pbi" aria-label="Mockup do controle financeiro com dados fictícios">
+        <div class="pbi-top"><span>Controle financeiro · Receita da competência</span><i>dados fictícios · R$ mil</i></div>
+        <div class="pbi-main">
+          <div class="pbi-row">
+            <div class="pbi-card"><h6>Do planejado ao medido</h6>
+              <svg viewBox="0 0 320 150" role="img" aria-label="Cascata: planejado 2.400, reajuste mais 118, glosa menos 36, mobilização menos 74, desempenho menos 22, medido 2.386">
+                <path d="M0 120H320" stroke="#c9ced8"/>
+                <g stroke="#c9ced8" stroke-dasharray="2 3"><path d="M48 62.9H62M100 29.1H114M152 39.4H166M204 60.6H218M256 66.9H270"/></g>
+                <rect x="10" y="62.9" width="38" height="57.1" fill="#1f2f4b"/>
+                <rect x="62" y="29.1" width="38" height="33.8" fill="#0f766e"/>
+                <rect x="114" y="29.1" width="38" height="10.3" fill="#dc2626"/>
+                <rect x="166" y="39.4" width="38" height="21.2" fill="#d97706"/>
+                <rect x="218" y="60.6" width="38" height="6.3" fill="#dc2626"/>
+                <rect x="270" y="66.9" width="38" height="53.1" fill="#1f2f4b"/>
+                <g font-size="10" font-weight="600" text-anchor="middle" fill="#1d2433"><text x="29" y="57">2.400</text><text x="81" y="24">+118</text><text x="133" y="51">−36</text><text x="185" y="72">−74</text><text x="237" y="79">−22</text><text x="289" y="61">2.386</text></g>
+                <g font-size="8.5" text-anchor="middle" fill="#6b7387"><text x="29" y="133">Planejado</text><text x="81" y="133">Reajuste</text><text x="133" y="133">Glosa</text><text x="185" y="133">Mobilização</text><text x="237" y="133">Desempenho</text><text x="289" y="133">Medido</text></g>
+                <text x="0" y="147" font-size="8" fill="#9aa1b0">eixo a partir de 2.200</text>
+              </svg>
+            </div>
+            <div class="pbi-card"><h6>Resultado do contrato · competência</h6>
+              <table class="dre">
+                <tr><td>Receita medida</td><td>2.386</td></tr>
+                <tr><td>(−) Repasse a subcontratadas</td><td>−612</td></tr>
+                <tr class="t"><td>Receita própria</td><td>1.774</td></tr>
+                <tr><td>(−) Pessoal</td><td>−1.020</td></tr>
+                <tr><td>(−) Materiais e frota</td><td>−264</td></tr>
+                <tr><td>(−) Multas contratuais</td><td class="v">sem lançamento</td></tr>
+                <tr class="t"><td>Margem de contribuição</td><td>490</td></tr>
+                <tr><td>(−) Despesas indiretas</td><td>−142</td></tr>
+                <tr class="t"><td>Resultado</td><td>348</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="pbi-foot">Redesenho com números fictícios. A perda da mobilização aparece separada da perda por desempenho, porque as duas pedem conversas diferentes com o cliente.</div>
+      </div>
+      <div class="stack">Power BI · Power Query parametrizado (SharePoint, funções próprias, calendário com feriados e Páscoa calculada) · DAX: SUMX por módulo, ciclo de reajuste por competência, DATESYTD, DRE por tabela desconectada · modelo documentado</div>
+    </div>
+  </article>
+
+  <article class="caso">
+    <div class="n"><b>03</b>Radar de licitações<br>Python · 2022 → 2026</div>
+    <div>
+      <h3>De um script que clicava no portal a um radar que lê a fonte oficial</h3>
+      <div class="pso">
+        <div><span class="mono">Problema</span><p>Em 2022 meu primeiro teste para achar licitações abria o portal de compras com Selenium, clicava na lista e lia a tabela da página. Dependia do código interno da página e da verificação de robô do site, e quebrava a cada mudança de tela.</p></div>
+        <div><span class="mono">Solução</span><p>Hoje toda contratação da Lei 14.133 sai no PNCP, que tem API de consulta aberta. O radar lê os pregões com proposta aberta e classifica o objeto com regra explícita. Compra de bem e serviço de outro domínio, como limpeza urbana ou vigilância sanitária, saem da lista. "Manutenção" só conta com contexto de edificação, e cada ponto vem com o motivo. A leitura do dia fica guardada, e o radar respeita o limite de taxa da API.</p></div>
+        <div class="res"><span class="mono">Resultado</span><p>Na rodada de 12/10/2026 em Minas Gerais, o radar leu 2.244 pregões e separou 74 de facilities, dos quais 30 encerravam em até 7 dias. A saída é um relatório com link para cada edital e uma planilha que abre direto no Excel. Só biblioteca padrão, sem chave e com 18 testes.</p></div>
+      </div>
+      <div class="brief" aria-label="Trecho do relatório do radar, com exemplos ilustrativos">
+        <div class="brief-top"><span>Radar de licitações · MG</span><span class="mono">trecho ilustrativo</span></div>
+        <div style="overflow-x:auto"><table class="radar-t">
+          <tr><th>Pts</th><th>Encerra</th><th>Objeto</th><th>Motivo</th></tr>
+          <tr><td><b>8</b></td><td>em 1 dia</td><td>Serviços contínuos de limpeza, portaria e apoio administrativo</td><td>limpeza · portaria · serviço continuado</td></tr>
+          <tr><td><b>6</b></td><td>em 3 dias</td><td>Manutenção e conservação de próprios municipais</td><td>manutenção + edificação · conservação</td></tr>
+          <tr><td><b>5</b></td><td>em 9 dias</td><td>Manutenção preventiva e corretiva de ar-condicionado</td><td>climatização · serviço continuado</td></tr>
+          <tr class="fora"><td>fora</td><td>—</td><td>Aquisição de materiais de limpeza</td><td>compra de bem</td></tr>
+        </table></div>
+      </div>
+      <div class="stack">Python (só biblioteca padrão) · API de consulta do PNCP · classificação por regra explicável · retry com Retry-After · leitura guardada · unittest</div>
+      <div class="lk"><a href="https://github.com/guihrodriguess/python-facility-tools/tree/main/radar_licitacoes">Código e instruções →</a></div>
+    </div>
+  </article>
+
+  <div class="sec-h sub-h"><div class="mono">Arquivo · 2022</div><div><h2>Painéis em Power BI, <em>onde comecei.</em></h2><p>Seis painéis feitos em 2022, em cursos de Power BI e análise de dados (Hashtag Treinamentos e Empowerdata), com empresas e dados fictícios.</p></div></div>
+
+  <div class="aviso"><span class="tag">2022</span><div>Foi aqui que comecei. Hoje o painel é a última etapa: antes dele vêm o modelo com a regra do contrato e, cada vez mais, o sistema que lê o documento e confere. Os mockups abaixo são redesenhos com números fictícios; os painéis originais e interativos estão no portfólio antigo.</div></div>
 
   <div class="dashs">
     <div class="dash"><div class="bar">Vendas<i>2022 · dados fictícios</i></div><div class="body">
